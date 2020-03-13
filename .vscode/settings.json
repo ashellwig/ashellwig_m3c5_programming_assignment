@@ -1,0 +1,97 @@
+{
+  /* Files */
+  "files.associations": {
+    "*.html": "html",
+    "*.txt": "cmake",
+    "*.in": "cpp",
+    "iostream": "cpp"
+  },
+  /* JSON */
+  "[json]": {
+    "editor.defaultFormatter": "vscode.json-language-features",
+    "editor.formatOnSave": true
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "vscode.json-language-features",
+    "editor.formatOnSave": true
+  },
+  /* C and C++ */
+  "clang-format.language.cpp.style": "file",
+  "clang-format.style": "file",
+  "[cpp]": {
+    "editor.defaultFormatter": "xaver.clang-format",
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true
+  },
+  "C_Cpp.clang_format_style": "file",
+  "C_Cpp.clang_format_fallbackStyle": "LLVM",
+  "clang-format.executable": "clang-format",
+  "clang.completion.enable": true,
+  "C_Cpp.default.compileCommands": "build/compile_commands.json",
+  "clang-format.language.cpp.enable": true,
+  /* Latex */
+  "latex-workshop.latex.tools": [
+    {
+      "name": "latexmk",
+      "command": "latexmk",
+      "args": [
+        "-synctex=1",
+        "-interaction=nonstopmode",
+        "-file-line-error",
+        "-pdf",
+        "%DOC%"
+      ]
+    },
+    {
+      "name": "pdflatex",
+      "command": "pdflatex",
+      "args": [
+        "-synctex=1",
+        "-interaction=nonstopmode",
+        "-file-line-error",
+        "%DOC%"
+      ]
+    },
+    {
+      "name": "bibtex",
+      "command": "bibtex",
+      "args": [
+        "%DOCFILE%"
+      ]
+    }
+  ],
+  "latex-workshop.latex.recipes": [
+    {
+      "name": "latexmk",
+      "tools": [
+        "latexmk"
+      ]
+    },
+    {
+      "name": "pdflatex -> bibtex -> pdflatex*2",
+      "tools": [
+        "pdflatex",
+        "bibtex",
+        "pdflatex",
+        "pdflatex"
+      ]
+    }
+  ],
+  "cSpell.enabledFiletypes": [
+    "asciidoc",
+    "c",
+    "cpp",
+    "git-commit",
+    "html",
+    "latex",
+    "markdown",
+    "restructuredtext",
+    "text",
+    "yaml",
+    "yml"
+  ],
+  "cSpell.words": [
+    "autoreconf",
+    "latexmk"
+  ]
+}
