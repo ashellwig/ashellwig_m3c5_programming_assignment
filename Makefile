@@ -19,8 +19,8 @@ CXXFLAGS := -c \
 	-ggdb
 LFLAGS := -std=c++2a -ggdb
 
-TEST_CXXFLAGS := -std=c++11 -Wall -Iinclude/catch2 -Iinclude
-TEST_LFLAGS := -std=c++11 -Wall -o out/test/bin/test.bin
+TEST_CXXFLAGS := -std=c++2a -Wall -Iinclude/catch2 -Iinclude
+TEST_LFLAGS := -std=c++2a -Wall -o out/test/bin/test.bin --coverage
 
 SRC := $(wildcard src/*.cxx)
 INCLUDES := include
@@ -49,6 +49,7 @@ test: clean debug
 	$(CXX) $(TEST_CXXFLAGS) -c test/catch_main.cxx -o out/test/obj/catch_main.o
 	$(CXX) $(TEST_LFLAGS) out/test/obj/NumberStats.o \
 		out/test/obj/catch_main.o test/TestCase.cxx
+	./out/test/bin/test.bin --reporter console
 
 # Doc
 user-doc-release: user-doc-build user-doc-clean

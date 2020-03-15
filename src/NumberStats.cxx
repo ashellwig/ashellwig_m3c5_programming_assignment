@@ -78,6 +78,10 @@ void NumberStats::printOdds() const {
   std::cout << '\n';
 }
 
+int NumberStats::getFirstNumber() const { return m_firstNumber; }
+
+int NumberStats::getSecondNumber() const { return m_secondNumber; }
+
 std::vector<int> NumberStats::getEvenNumbers() const { return m_evenNumbers; }
 
 int NumberStats::getSumOfEvens() const {

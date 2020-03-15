@@ -34,9 +34,13 @@
         "limitSymbolsToIncludedHeaders": true
       },
       "compilerPath": "/usr/bin/g++",
+      "compilerArgs": [
+        "-std=c++2a",
+        "-Iinclude",
+        "-isystem include/catch2"
+      ],
       "cStandard": "c11",
-      "cppStandard": "c++20",
-      "configurationProvider": "vector-of-bool.cmake-tools"
+      "cppStandard": "c++20"
     }
   ],
   "version": 4

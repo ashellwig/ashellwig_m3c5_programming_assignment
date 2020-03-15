@@ -116,6 +116,13 @@
   "clang.completion.enable": true,
   "C_Cpp.default.compileCommands": "build/compile_commands.json",
   "clang-format.language.cpp.enable": true,
+  "C_Cpp.default.cppStandard": "c++20",
+  "C_Cpp.default.compilerPath": "/usr/bin/g++",
+  "C_Cpp.default.compilerArgs": [
+    "-std=c++2a",
+    "-Iinclude",
+    "-isystem include/catch2"
+  ],
   /* Latex */
   "latex-workshop.latex.tools": [
     {

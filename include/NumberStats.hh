@@ -14,20 +14,41 @@
  * Date: 13 March 2020
  */
 
-#include <functional>
-#include <ios>
+#include <exception>
+#include <iostream>
 #include <vector>
 
 #ifndef NUMBERSTATS_HH_INCLUDED
 #define NUMBERSTATS_HH_INCLUDED
 
 namespace chapter5 {
+
+class InputException : public std::exception {
+  virtual const char *what() const throw() {
+    return "Cannot have first input higher than the second.";
+  }
+};
+
 class NumberStats {
 public:
   NumberStats(int in1, int in2) {
-    setNumbers(in1, in2);
-    setEvenNumbers(m_firstNumber, m_secondNumber);
-    setOddNumbers(m_firstNumber, m_secondNumber);
+    int __error_count = 0;
+    InputException input_exception;
+    try {
+      setNumbers(in1, in2);
+      if (in1 > in2)
+        throw(input_exception);
+    } catch (const std::exception &e) {
+      std::cerr << e.what() << '\n';
+      __error_count += 1;
+    }
+
+    if (__error_count == 0) {
+      setEvenNumbers(m_firstNumber, m_secondNumber);
+      setOddNumbers(m_firstNumber, m_secondNumber);
+    } else {
+      return;
+    }
   }
 
   void setNumbers(int, int);
@@ -37,6 +58,8 @@ public:
 
   void printOdds() const;
 
+  int getFirstNumber() const;
+  int getSecondNumber() const;
   std::vector<int> getEvenNumbers() const;
   int getSumOfEvens() const;
   std::vector<int> getOddNumbers() const;
