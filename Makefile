@@ -35,6 +35,8 @@ clean-all: clean user-doc-clean-all
 	$(RM) -f out/bin/*.bin
 	$(RM) -f out/test/bin/*.bin
 	$(RM) -f out/doc/user_docs.pdf
+	$(RM) -f *.gcda
+	$(RM) -f *.gcno
 
 # Debug Build
 debug: $(OBJS)

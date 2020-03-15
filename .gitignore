@@ -24,6 +24,8 @@ doc/user_docs/main.*
 *.out
 *.s
 **/build/**
+*.gcda
+*.gcno
 
 # Automake
 **/autom4te.cache/**
