@@ -17,6 +17,7 @@
 #include "../include/NumberStats.hh"
 #include "../include/debug.hh"
 #include <cmath>
+#include <iomanip>
 #include <iostream>
 #include <vector>
 
@@ -58,7 +59,7 @@ void NumberStats::generateStatisticalOutput() const {
   std::cout << "Sum of even integers between " << m_firstNumber << " and "
             << m_secondNumber << " = " << getSumOfEvens() << '\n';
 
-  // TODO: printPowersOneToTen();
+  printPowersOneToTen();
 
   std::cout << "The sum of the squares of odd integers between "
             << m_firstNumber << " and " << m_secondNumber << " = "
@@ -100,7 +101,21 @@ int NumberStats::getSumOfOddSquares() const {
 }
 
 void NumberStats::printPowersOneToTen() const {
-  // TODO: Implement me!
+  std::cout << std::setfill(' ') << "Number" << std::setw(20)
+            << "Square of Number" << '\n';
+
+  int start = 1;
+  while (start <= 10) {
+    if (start == 10) {
+      std::cout << start << std::setw(16) << std::pow(start, 2) << '\n';
+    } else {
+      std::cout << start << std::setw(17) << std::pow(start, 2) << '\n';
+    }
+
+    start += 1;
+  }
+
+  std::cout << '\n';
 }
 
 void NumberStats::printLetters() const {
