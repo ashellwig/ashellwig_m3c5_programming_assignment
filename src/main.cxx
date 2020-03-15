@@ -9,7 +9,7 @@
  * Instructor: Jeffrey Hemmes
  * Course:
  *   [CSC 160] Introduction to Programming (C++)
- * Date: 13 March 2020
+ * Date: 14 March 2020
  */
 
 #include "../include/NumberStats.hh"       // NumberStats
@@ -20,7 +20,21 @@
  * \brief Performs the steps to execute the main application.
  */
 int main() {
-  std::cout << "Hello, world!\n";
+  // Variables to store the user's input
+  int num1, num2;
+
+  // Prompt user for numbers
+  std::cout << "Enter two numbers.\n";
+  std::cout << "First number must be less than the second number you enter\n";
+  std::cout << "Enter numbers: ";
+  std::cin >> num1 >> num2;
+  std::cout << '\n';
+
+  // Initialize our class
+  chapter5::NumberStats numbers(num1, num2);
+
+  // Generate the output
+  numbers.generateStatisticalOutput();
 
   // "Press enter to continue..."
   general_functions::pauseprompt();

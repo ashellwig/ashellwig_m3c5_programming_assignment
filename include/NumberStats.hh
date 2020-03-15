@@ -14,6 +14,7 @@
  * Date: 13 March 2020
  */
 
+#include <functional>
 #include <ios>
 #include <vector>
 
@@ -23,22 +24,28 @@
 namespace chapter5 {
 class NumberStats {
 public:
-  NumberStats(int &in1, int &in2) : m_inputOne(in1), m_inputTwo(in2) {}
+  NumberStats(int in1, int in2) {
+    setNumbers(in1, in2);
+    setEvenNumbers(m_firstNumber, m_secondNumber);
+    setOddNumbers(m_firstNumber, m_secondNumber);
+  }
 
   void setNumbers(int, int);
   void setEvenNumbers(int, int);
   void setOddNumbers(int, int);
-  void generateStatisticalOutput(NumberStats *);
+  void generateStatisticalOutput() const;
 
-  std::vector<int> getEvenNumbers();
-  std::vector<int> getOddNumbers();
+  void printOdds() const;
 
-  void printPowersOneToTen();
-  void printLetters();
+  std::vector<int> getEvenNumbers() const;
+  int getSumOfEvens() const;
+  std::vector<int> getOddNumbers() const;
+  int getSumOfOddSquares() const;
 
-private:
-  int &m_inputOne;
-  int &m_inputTwo;
+  void printPowersOneToTen() const;
+  void printLetters() const;
+
+protected:
   int m_firstNumber;
   int m_secondNumber;
   std::vector<int> m_evenNumbers;
