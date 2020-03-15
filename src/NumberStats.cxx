@@ -65,11 +65,13 @@ void NumberStats::generateStatisticalOutput() const {
             << m_firstNumber << " and " << m_secondNumber << " = "
             << getSumOfOddSquares() << '\n';
 
-  // TODO: printLetters();
+  printLetters();
+
+  std::cout << '\n';
 }
 
 void NumberStats::printOdds() const {
-  for (auto iter = m_oddNumbers.begin(); iter < m_oddNumbers.end(); iter++) {
+  for (auto iter = m_oddNumbers.begin(); iter != m_oddNumbers.end(); iter++) {
     std::cout << *iter << ' ';
   }
 
@@ -81,7 +83,7 @@ std::vector<int> NumberStats::getEvenNumbers() const { return m_evenNumbers; }
 int NumberStats::getSumOfEvens() const {
   int sumOfEvens;
 
-  for (auto iter = m_evenNumbers.begin(); iter <= m_evenNumbers.end(); iter++) {
+  for (auto iter = m_evenNumbers.begin(); iter != m_evenNumbers.end(); iter++) {
     sumOfEvens += *iter;
   }
 
@@ -93,7 +95,7 @@ std::vector<int> NumberStats::getOddNumbers() const { return m_oddNumbers; }
 int NumberStats::getSumOfOddSquares() const {
   int sumOfOddSquares;
 
-  for (auto iter = m_oddNumbers.begin(); iter <= m_oddNumbers.end(); iter++) {
+  for (auto iter = m_oddNumbers.begin(); iter != m_oddNumbers.end(); iter++) {
     sumOfOddSquares += std::pow(*iter, 2);
   }
 
@@ -119,5 +121,12 @@ void NumberStats::printPowersOneToTen() const {
 }
 
 void NumberStats::printLetters() const {
-  // TODO: Implement me!
+  std::cout << "Uppercase letters are: ";
+
+  char currentLetter = 'A';
+  while (currentLetter >= 'A' && currentLetter <= 'Z') {
+    std::cout << currentLetter++ << ' ';
+  }
+
+  std::cout << '\n';
 }
