@@ -119,11 +119,29 @@
   "C_Cpp.default.cppStandard": "c++20",
   "C_Cpp.default.compilerPath": "/usr/bin/g++",
   "C_Cpp.default.compilerArgs": [
-    "-std=c++2a",
+    "-std=gnu++2a",
     "-Iinclude",
     "-isystem include/catch2"
   ],
   /* Latex */
+  "[latex]": {
+    "editor.formatOnPaste": false,
+    "editor.formatOnSave": false,
+    "editor.suggestSelection": "recentlyUsedByPrefix",
+    "editor.codeActionsOnSave": {
+      "source.fixAll": false,
+      "source.organizeImports": false
+    }
+  },
+  "[bibtex]": {
+    "editor.formatOnPaste": false,
+    "editor.formatOnSave": false,
+    "editor.suggestSelection": "recentlyUsedByPrefix",
+    "editor.codeActionsOnSave": {
+      "source.fixAll": false,
+      "source.organizeImports": false
+    }
+  },
   "latex-workshop.latex.tools": [
     {
       "name": "latexmk",
@@ -171,6 +189,15 @@
       ]
     }
   ],
+  "latex-workshop.bibtex-format.tab": "2 spaces",
+  "latex-workshop.bibtex-format.case": "lowercase",
+  "latex-workshop.bibtex-format.handleDuplicates": "Highlight Duplicates",
+  "latex-workshop.bibtex-format.sortby": [
+    "date"
+  ],
+  "latex-workshop.bibtex-format.surround": "Curly braces",
+  /* General Tools */
+  // Spell Checker
   "cSpell.enabledFiletypes": [
     "asciidoc",
     "c",

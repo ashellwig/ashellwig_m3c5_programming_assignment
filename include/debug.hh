@@ -18,15 +18,15 @@
 #define DEBUG_HH_INCLUDED
 
 #ifndef DEBUG
-#define DEBUG 0
+#  define DEBUG 0
 #else
-#define DEBUG 1
-#endif // DEBUG
+#  define DEBUG 1
+#endif // !DEBUG
 
 #define verbose_print(...)                                                     \
   do {                                                                         \
     if (DEBUG)                                                                 \
       fprintf(stderr, __VA_ARGS__);                                            \
-  } while (0)
+  } while (1)
 
 #endif // !DEBUG_HH_INCLUDED

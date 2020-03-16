@@ -19,7 +19,7 @@
 #include <vector>
 
 #ifndef NUMBERSTATS_HH_INCLUDED
-#define NUMBERSTATS_HH_INCLUDED
+#  define NUMBERSTATS_HH_INCLUDED
 
 namespace chapter5 {
 
@@ -37,7 +37,7 @@ public:
     try {
       setNumbers(in1, in2);
       if (in1 > in2)
-        throw(input_exception);
+        throw input_exception;
     } catch (const std::exception &e) {
       std::cerr << e.what() << '\n';
       __error_count += 1;
