@@ -28,17 +28,17 @@ CXXFLAGS := \
 LFLAGS := \
 	-std=gnu++2a \
 	-ggdb \
-	-D_DEBUG=1
 
 # --- Test Variables ---
 TEST_PROGRAM := out/bin/test
-TEST_SRC := src/NumberStats.cxx $(wildcard test/*.cxx)
+TEST_SRC := test/catch_main.cxx src/NumberStats.cxx
 TEST_INCLUDES := -isystem include/catch2 -Iinclude
-TEST_OBJS := $(add_prefix out/obj/test/, $(notdir $(TEST_SRC:.cxx:.o)))
+TEST_OBJS := $(addprefix out/obj/test/, $(notdir $(TEST_SRC:.cxx=.o)))
+TEST_OBJS += out/obj/test/NumberStats.o
 TEST_CXXFLAGS := \
 	-std=c++11 \
-	-Wall
-TEST_LFLAGS := $(LFLAGS)
+	-ggdb
+TEST_LFLAGS := -std=c++11
 
 # === Rules ===
 # --- Chains ---
@@ -60,18 +60,29 @@ out/obj/%.o: src/%.cxx
 
 # --- Tests ---
 test: debug
-	$(CXX) $(CXXFLAGS) $(TEST_INCLUDES) \
+	$(CXX) $(CXXFLAGS) \
 		-c src/NumberStats.cxx \
-		-o out/obj/test/NumberStats.o
-	$(CXX) $(TEST_CXXFLAGS) $(TEST_INCLUDES) \
+		-o out/obj/test/NumberStats.o \
+		-I$(INCLUDES)
+
+	$(CXX) $(TEST_CXXFLAGS) \
 		-c test/catch_main.cxx \
-		-o out/obj/test/catch_main.o
-	$(CXX) $(TEST_CXXFLAGS) $(TEST_INCLUDES) \
+		-o out/obj/test/catch_main.o \
+		$(TEST_INCLUDES)
+
+	$(CXX) $(TEST_CXXFLAGS) \
 		-c test/TestCase.cxx \
 		-o out/obj/test/TestCase.o \
-	$(CXX) $(TEST_LFLAGS) $(TEST_INCLUDES) -o out/bin/test $(TEST_OBJS)
+		$(TEST_INCLUDES) -I$(INCLUDES)
+
+	$(CXX) $(TEST_LFLAGS) -o out/bin/test.bin \
+		out/obj/test/NumberStats.o \
+		out/obj/test/catch_main.o \
+		out/obj/test/TestCase.o \
+		$(TEST_INCLUDES) -I$(INCLUDES)
+
 unit-test: test
-	./out/bin/test \
+	./out/bin/test.bin \
 	--success \
 	--reporter console \
 	--use-colour yes \
