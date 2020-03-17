@@ -355,36 +355,13 @@ cd ~/Downloads/ashellwig_m3c5_programming_assignment/bin
       \caption{Running Chapter 5`s Program}
       \label{img:running}
     \end{figure}
-    \begin{figure}[H]
-      \includegraphics[%
-        width={\textwidth}%
-      ]{run2.png}
-      \caption{Running Chapter 5`s Program -- No leftovers}
-      \label{img:running2}
-    \end{figure}
 
 
   \newpage
   \section{Unit Tests}
-    Tests were written with the Catch2 library like so:
-
-    \begin{lstlisting}[language=C++,caption={test/TestCase.cxx}]
-#include "../include/NumberStats.hh"
-#include "../include/catch2/catch.hh"
-
-TEST_CASE("Example input data is correct", "[]") {
-  NumberStats obj(12345);
-  obj.calculate();
-
-  REQUIRE(obj.getTotalCookies() == 12345);
-  REQUIRE(obj.getTotalBoxes() == 514);
-  REQUIRE(obj.getTotalContainers() == 6);
-  REQUIRE(obj.getLeftoverCookies() == 9);
-  REQUIRE(obj.getLeftoverBoxes() == 64);
-}
-    \end{lstlisting}
-
-    The output is below.
+    Tests were written with the
+      \href{https://github.com/catchorg/catch}{Catch2 library}. The output is
+      shown below.
 
     \begin{figure}[H]
       \caption{Test Output}
