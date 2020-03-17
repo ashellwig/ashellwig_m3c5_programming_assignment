@@ -32,23 +32,13 @@ class InputException : public std::exception {
 class NumberStats {
 public:
   NumberStats(int in1, int in2) {
-    int __error_count = 0;
     InputException input_exception;
-    try {
-      setNumbers(in1, in2);
-      if (in1 > in2)
-        throw input_exception;
-    } catch (const std::exception &e) {
-      std::cerr << e.what() << '\n';
-      __error_count += 1;
+    if (in1 > in2) {
+      throw input_exception;
     }
-
-    if (__error_count == 0) {
-      setEvenNumbers(m_firstNumber, m_secondNumber);
-      setOddNumbers(m_firstNumber, m_secondNumber);
-    } else {
-      return;
-    }
+    setNumbers(in1, in2);
+    setEvenNumbers(m_firstNumber, m_secondNumber);
+    setOddNumbers(m_firstNumber, m_secondNumber);
   }
 
   void setNumbers(int, int);
