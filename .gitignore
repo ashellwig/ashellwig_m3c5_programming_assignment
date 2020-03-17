@@ -9,12 +9,6 @@ doc/user_docs/main.*
 !doc/user_docs/main.bib
 !doc/user_docs/main.tex
 !doc/user_docs/ashellwig_c2p2_userdocs.pdf
-**/out/**
-!**/out/bin/.gitkeep
-!**/out/test/bin/.gitkeep
-!**/out/obj/.gitkeep
-!**/out/test/obj/.gitkeep
-!**/out/doc/.gitkeep
 
 # CPP
 *.bc
@@ -26,6 +20,13 @@ doc/user_docs/main.*
 **/build/**
 *.gcda
 *.gcno
+**/out/**
+!**/out/bin/.gitkeep
+!**/out/obj/test/.gitkeep
+!**/out/obj/.gitkeep
+!**/out/obj/test/.gitkeep
+!**/out/doc/.gitkeep
+!**/out/doc/doxygen/.gitkeep
 
 # Automake
 **/autom4te.cache/**

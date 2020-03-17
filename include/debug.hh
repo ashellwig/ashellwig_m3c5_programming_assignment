@@ -20,12 +20,15 @@
 #ifndef DEBUG
 #  define DEBUG 0
 #else
-#  define DEBUG 1
+#  define DEBUG          1
+#  define DEBUG_PRINTING 1
 #endif // !DEBUG
 
 #define verbose_print(...)                                                     \
   do {                                                                         \
     if (DEBUG)                                                                 \
+      fprintf(stderr, __VA_ARGS__);                                            \
+    else if (DEBUG_PRINTING)                                                   \
       fprintf(stderr, __VA_ARGS__);                                            \
   } while (1)
 
