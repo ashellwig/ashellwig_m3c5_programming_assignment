@@ -23,11 +23,23 @@
 
 using namespace chapter5;
 
+/**
+ * @brief Sets the numbers used for the methods of NumberStats objects.
+ *
+ * @param num1 First input (Must be < num2).
+ * @param num2 Second input.
+ */
 void NumberStats::setNumbers(int num1, int num2) {
   m_firstNumber = num1;
   m_secondNumber = num2;
 }
 
+/**
+ * @brief Generates a vector of even integers between `start` and `end`.
+ *
+ * @param start First number input by user (beginning of vector).
+ * @param end Second number input by user (end of vector).
+ */
 void NumberStats::setEvenNumbers(int start, int end) {
   start = m_firstNumber;
   end = m_secondNumber;
@@ -39,6 +51,12 @@ void NumberStats::setEvenNumbers(int start, int end) {
   }
 }
 
+/**
+ * @brief Generates a vector of odd integers between `start` and `end`.
+ *
+ * @param start First number input by user (beginning of vector).
+ * @param end Second number input by user (end of vector).
+ */
 void NumberStats::setOddNumbers(int start, int end) {
   start = m_firstNumber;
   end = m_secondNumber;
@@ -50,6 +68,11 @@ void NumberStats::setOddNumbers(int start, int end) {
   }
 }
 
+/**
+ * @brief Generates the output required in the programming assignment
+ * specification for this program.
+ *
+ */
 void NumberStats::generateStatisticalOutput() const {
   std::cout << "Odd integers between " << m_firstNumber << " and "
             << m_secondNumber << " are:\n";
@@ -70,6 +93,10 @@ void NumberStats::generateStatisticalOutput() const {
   std::cout << '\n';
 }
 
+/**
+ * @brief Prints the integers contained in the odd number vector.
+ *
+ */
 void NumberStats::printOdds() const {
   for (auto iter = m_oddNumbers.begin(); iter != m_oddNumbers.end(); iter++) {
     std::cout << *iter << ' ';
@@ -78,12 +105,32 @@ void NumberStats::printOdds() const {
   std::cout << '\n';
 }
 
+/**
+ * @brief Gets first number input by user.
+ *
+ * @return int First number input by user.
+ */
 int NumberStats::getFirstNumber() const { return m_firstNumber; }
 
+/**
+ * @brief Gets second number input by user.
+ *
+ * @return int Second number input by user.
+ */
 int NumberStats::getSecondNumber() const { return m_secondNumber; }
 
+/**
+ * @brief Gets the vector of even integers.
+ *
+ * @return std::vector<int> Vector of even integers.
+ */
 std::vector<int> NumberStats::getEvenNumbers() const { return m_evenNumbers; }
 
+/**
+ * @brief Generates sum of even integer vector.
+ *
+ * @return int Sum of even integer vector.
+ */
 int NumberStats::getSumOfEvens() const {
   int sumOfEvens;
 
@@ -94,8 +141,18 @@ int NumberStats::getSumOfEvens() const {
   return sumOfEvens;
 }
 
+/**
+ * @brief Gets odd number vector.
+ *
+ * @return std::vector<int> Odd number vector.
+ */
 std::vector<int> NumberStats::getOddNumbers() const { return m_oddNumbers; }
 
+/**
+ * @brief Generates sum of squared odd integers in odd vector.
+ *
+ * @return int Sum of squared odd integers in odd vector.
+ */
 int NumberStats::getSumOfOddSquares() const {
   int sumOfOddSquares;
 
@@ -106,6 +163,10 @@ int NumberStats::getSumOfOddSquares() const {
   return sumOfOddSquares;
 }
 
+/**
+ * @brief Outputs a table of the numbers 1-10 and their square.
+ *
+ */
 void NumberStats::printPowersOneToTen() const {
   std::cout << std::setfill(' ') << "Number" << std::setw(20)
             << "Square of Number" << '\n';
@@ -124,6 +185,10 @@ void NumberStats::printPowersOneToTen() const {
   std::cout << '\n';
 }
 
+/**
+ * @brief Outputs all uppercase letters of the English alphabet.
+ *
+ */
 void NumberStats::printLetters() const {
   std::cout << "Uppercase letters are: ";
 

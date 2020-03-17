@@ -31,6 +31,12 @@ class InputException : public std::exception {
 
 class NumberStats {
 public:
+  /**
+   * @brief Construct a new NumberStats object.
+   *
+   * @param in1 First number (must be <in2).
+   * @param in2 Second number (must be >in1),
+   */
   NumberStats(int in1, int in2) {
     InputException input_exception;
     if (in1 > in2) {
