@@ -1,5 +1,5 @@
 #include "../include/NumberStats.hh"
-#include "../include/catch2/catch.hh"
+#include "../include/catch2/catch.hpp"
 #include <vector>
 
 using chapter5::NumberStats;
