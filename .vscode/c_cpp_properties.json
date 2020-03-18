@@ -13,6 +13,7 @@
         "${workspaceRoot}",
         "${workspaceRoot}/include",
         "${workspaceRoot}/include/catch2",
+        "${workspaceRoot}/include/cxxopts",
         "${workspaceRoot}/include/fakeit"
       ],
       "defines": [
@@ -31,6 +32,7 @@
           "${workspaceRoot}",
           "${workspaceRoot}/include",
           "${workspaceRoot}/include/catch2",
+          "${workspaceRoot}/include/cxxopts",
           "${workspaceRoot}/include/fakeit"
         ],
         "limitSymbolsToIncludedHeaders": true
@@ -39,7 +41,8 @@
       "compilerArgs": [
         "-std=gnu++2a",
         "-Iinclude",
-        "-isystem include/catch2"
+        "-isystem include/catch2",
+        "-isystem include/cxxopts"
       ],
       "cStandard": "c11",
       "cppStandard": "c++20"

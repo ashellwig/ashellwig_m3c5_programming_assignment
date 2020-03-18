@@ -13,13 +13,15 @@
  */
 
 #include "../include/NumberStats.hh"       // NumberStats
+#include "../include/cxxopts/cxxopts.hpp"  // Argument parsing
 #include "../include/general_functions.hh" // pauseprompt
 #include <iostream>                        // cout, cin
+#include <limits>
 
 /**
  * \brief Performs the steps to execute the main application.
  */
-int main() {
+int main(int argc, char **argv) {
   // Variables to store the user's input
   int num1, num2;
 
@@ -28,6 +30,20 @@ int main() {
   std::cout << "First number must be less than the second number you enter\n";
   std::cout << "Enter numbers: ";
   std::cin >> num1 >> num2;
+
+  while (num1 > num2) {
+    throw chapter5::InputException();
+
+    // Clear "Failed" state of cin
+    std::cin.clear();
+
+    // Remove invalid characters
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+
+    // Try again
+    std::cin >> num1 >> num2;
+  }
+
   std::cout << '\n';
 
   // Initialize our class

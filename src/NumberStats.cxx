@@ -98,9 +98,13 @@ void NumberStats::generateStatisticalOutput() const {
  *
  */
 void NumberStats::printOdds() const {
-  for (auto iter = m_oddNumbers.begin(); iter != m_oddNumbers.end(); iter++) {
-    std::cout << *iter << ' ';
-  }
+  std::vector<int>::const_iterator oddIterator =
+      m_oddNumbers.begin(); //<! Iterator (Loop Control Variable)
+
+  do {
+    std::cout << *oddIterator << ' ';
+    oddIterator++;
+  } while (oddIterator != m_oddNumbers.end());
 
   std::cout << '\n';
 }

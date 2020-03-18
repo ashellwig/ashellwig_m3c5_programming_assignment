@@ -114,14 +114,14 @@
   "C_Cpp.clang_format_fallbackStyle": "LLVM",
   "clang-format.executable": "clang-format",
   "clang.completion.enable": true,
-  "C_Cpp.default.compileCommands": "build/compile_commands.json",
   "clang-format.language.cpp.enable": true,
   "C_Cpp.default.cppStandard": "c++20",
   "C_Cpp.default.compilerPath": "/usr/bin/g++",
   "C_Cpp.default.compilerArgs": [
     "-std=gnu++2a",
     "-Iinclude",
-    "-isystem include/catch2"
+    "-isystem include/catch2",
+    "-isystem include/cxxopts"
   ],
   "doxdocgen.generic.briefTemplate": "\\brief {text} ",
   "doxdocgen.generic.paramTemplate": "\\param {param} ",

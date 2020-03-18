@@ -24,6 +24,7 @@
 namespace chapter5 {
 
 class InputException : public std::exception {
+public:
   virtual const char *what() const throw() {
     return "Cannot have first input higher than the second.";
   }
