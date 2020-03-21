@@ -39,10 +39,6 @@ public:
    * @param in2 Second number (must be >in1),
    */
   NumberStats(int in1, int in2) {
-    InputException input_exception;
-    if (in1 > in2) {
-      throw input_exception;
-    }
     setNumbers(in1, in2);
     setEvenNumbers(m_firstNumber, m_secondNumber);
     setOddNumbers(m_firstNumber, m_secondNumber);

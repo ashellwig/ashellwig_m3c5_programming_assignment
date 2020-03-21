@@ -75,18 +75,18 @@ void NumberStats::setOddNumbers(int start, int end) {
  */
 void NumberStats::generateStatisticalOutput() const {
   std::cout << "Odd integers between " << m_firstNumber << " and "
-            << m_secondNumber << " are:\n";
+            << m_secondNumber << " are:" << std::endl;
 
   printOdds();
 
   std::cout << "Sum of even integers between " << m_firstNumber << " and "
-            << m_secondNumber << " = " << getSumOfEvens() << '\n';
+            << m_secondNumber << " = " << getSumOfEvens() << std::endl;
 
   printPowersOneToTen();
 
   std::cout << "The sum of the squares of odd integers between "
             << m_firstNumber << " and " << m_secondNumber << " = "
-            << getSumOfOddSquares() << '\n';
+            << getSumOfOddSquares() << std::endl;
 
   printLetters();
 
@@ -98,15 +98,15 @@ void NumberStats::generateStatisticalOutput() const {
  *
  */
 void NumberStats::printOdds() const {
-  std::vector<int>::const_iterator oddIterator =
-      m_oddNumbers.begin(); //<! Iterator (Loop Control Variable)
+  // Loop Control Variable
+  std::vector<int>::const_iterator oddIterator = m_oddNumbers.begin();
 
-  do {
-    std::cout << *oddIterator << ' ';
-    oddIterator++;
-  } while (oddIterator != m_oddNumbers.end());
+  while ((oddIterator > m_oddNumbers.end()) &&
+         (oddIterator != m_oddNumbers.end())) {
+    std::cout << *oddIterator++ << ' ';
+  }
 
-  std::cout << '\n';
+  std::cout << std::endl;
 }
 
 /**
@@ -138,7 +138,10 @@ std::vector<int> NumberStats::getEvenNumbers() const { return m_evenNumbers; }
 int NumberStats::getSumOfEvens() const {
   int sumOfEvens;
 
-  for (auto iter = m_evenNumbers.begin(); iter != m_evenNumbers.end(); iter++) {
+  // Loop control variable
+  std::vector<int>::const_iterator iter = m_evenNumbers.begin();
+
+  while (iter < m_evenNumbers.end()) {
     sumOfEvens += *iter;
   }
 
@@ -158,9 +161,12 @@ std::vector<int> NumberStats::getOddNumbers() const { return m_oddNumbers; }
  * @return int Sum of squared odd integers in odd vector.
  */
 int NumberStats::getSumOfOddSquares() const {
+  // Sum of the odd numbers each squared
   int sumOfOddSquares;
+  // Loop Control Variable
+  std::vector<int>::const_iterator iter = m_oddNumbers.begin();
 
-  for (auto iter = m_oddNumbers.begin(); iter != m_oddNumbers.end(); iter++) {
+  while (iter < m_oddNumbers.end()) {
     sumOfOddSquares += std::pow(*iter, 2);
   }
 

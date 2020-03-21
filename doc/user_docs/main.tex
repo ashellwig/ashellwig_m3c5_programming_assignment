@@ -264,28 +264,122 @@ Press any key to continue...
   \newpage
   \section{Algorithm}
     Below is the algorithm for the program.
-    \begin{algorithm}[h]
-      \caption{Chapter 5 Program Algorithm}
+    \begin{algorithm}[H]
+      \caption{Chapter 5 Program Algorithm -- Req. (a)}
       \vspace{12pt}
       \begin{algorithmic}[1]
-        % MAIN
-        \Function{main}{}
-          %% Variables
-          \State $num1\gets0$\Comment{Variable Declarations}
-          \State\Return{$num1$}
-        \EndFunction
+        \Procedure{getinput}{$\&a,\&b$}
+        \Comment{Get user input}
+          \While{\Call{readInput}{$a, b$}}
+            \If{$a > b$}
+              \State\Call{print}{``a must be less than b''}
+              \State\Call{readInput}{$a, b$}
+            \EndIf
+          \EndWhile
+        \EndProcedure\label{getinputendproc}
       \end{algorithmic}
-      \label{alg:c3program}
+      \label{alg:c3a}
     \end{algorithm}
+    \begin{algorithm}[H]
+      \caption{Chapter 5 Program Algorithm -- Req. (b)}
+      \vspace{12pt}
+      \begin{algorithmic}[1]
+        \Procedure{outOdds}{$a,b$}
+        \Comment{Output all odd numbers between a and b}
+          \State $count\gets a$\Comment{Loop Control Variable}
+          \State
+          \While{$count\leq b$}
+            \If{$count\bmod 2 \not=0$}
+              \State\Call{print}{$count$} + \Call{print}{`\ '}
+            \EndIf
+            \State
+            \State $count\pluseq\ 1$
+          \EndWhile
+        \EndProcedure\label{outoddendproc}
+      \end{algorithmic}
+      \label{alg:c3b}
+    \end{algorithm}
+    \begin{algorithm}[H]
+      \caption{Chapter 5 Program Algorithm -- Req. (c)}
+      \vspace{12pt}
+      \begin{algorithmic}[1]
+        \State
+        \Procedure{sumOfEvens}{$a, b$}
+        \Comment{Output the sum of even numbers between a and b}
+          \State $sum\gets 0$\Comment{Sum of even numbers}
+          \State $count\gets a$\Comment{Loop control variable}
+          \State
+          \While{$count\leq b$}
+            \If{$count\bmod 2 = 0$}
+              \State $sum\pluseq count$
+            \EndIf
+            \State
+            \State $count\pluseq 1$
+          \EndWhile
+          \State\State
+          \Call{print}{``Sum = \{\}'', $sum$}
+        \EndProcedure\label{sumevensendproc}
+      \end{algorithmic}
+      \label{alg:c3c}
+    \end{algorithm}
+    \newpage
+    \begin{algorithm}[H]
+      \caption{Chapter 5 Program Algorithm -- Req. (d)}
+      \vspace{12pt}
+      \begin{algorithmic}[1]
+        \Procedure{first10Squares}{}
+        \Comment{Output the number and its square from 1 to 10}
+          \State $count\gets 1$\Comment{Loop Control Variable}
+          \State
+          \While{$count\leq 10$}
+            \State\Call{print}{$count$ + $count^2$}
+            \State\Call{print}{`\textbackslash n'}
+          \EndWhile
+        \EndProcedure\label{first10endproc}
+      \end{algorithmic}
+      \label{alg:c3d}
+    \end{algorithm}
+    \begin{algorithm}[H]
+      \caption{Chapter 5 Program Algorithm -- Req. (e)}
+      \vspace{12pt}
+      \begin{algorithmic}[1]
+        \Procedure{sumOddSquares}{$a,b$}
+        \Comment{Sum of odd squares}
+        \EndProcedure\label{sumoddsqendproc}
+      \end{algorithmic}
+      \label{alg:c3e}
+    \end{algorithm}
+    \begin{algorithm}[H]
+      \caption{Chapter 5 Program Algorithm -- Req. (f)}
+      \vspace{12pt}
+      \begin{algorithmic}[1]
+        \Procedure{uppercaseLetters}{}
+        \Comment{Output uppercase letters}
+          \State $currentChar\gets \text{`A'}$\Comment{Loop Control Variable}
+          \State
+          \While{$currentChar\geq\text{`A'}\ \&\&\ currentChar\leq\text{`Z'}$}
+            \State\Call{print}{$currentChar++$, `\ '}
+          \EndWhile
+        \EndProcedure\label{uppercaseendproc}
+      \end{algorithmic}
+      \label{alg:c3f}
+    \end{algorithm}
+
+    Above, the algorithms address each part of the program requirements
+      individually. Algorithm \ref{alg:c3a} shows prompting for integers,
+      Algorithm \ref{alg:c3b} shows outputing numbers between two inputs,
+      Algorithm \ref{alg:c3c} shows calculating the sum of all even numbers
+      between two inputs, Algorithm \ref{alg:c3d} shows outputing the numbers
+      $1\rightarrow10$ and their squares, Algorithm \ref{alg:c3e} shows
+      calculating the sum of the odd numbers squared, and finally Algorithm
+      \ref{alg:c3f} shows the outputting of all uppercase English characters.
 
 
   % User Documentation
   \newpage
-  
   \section{User Documentation}
     Please see Appendix \ref{appendix:img} for images showing the compilation
-      (Figure \ref{img:compilation}) and the running program (Figure
-      \ref{img:running} and Figure \ref{img:running2}).
+      and running of the program.
 
     %% Usage
     \subsection{Build}

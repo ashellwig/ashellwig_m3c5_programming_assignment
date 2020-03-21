@@ -15,7 +15,8 @@
 #include "../include/NumberStats.hh"       // NumberStats
 #include "../include/cxxopts/cxxopts.hpp"  // Argument parsing
 #include "../include/general_functions.hh" // pauseprompt
-#include <iostream>                        // cout, cin
+#include <exception>
+#include <iostream> // cout, cin
 #include <limits>
 
 /**
@@ -26,25 +27,22 @@ int main(int argc, char **argv) {
   int num1, num2;
 
   // Prompt user for numbers
-  std::cout << "Enter two numbers.\n";
-  std::cout << "First number must be less than the second number you enter\n";
+  std::cout << "Enter two numbers." << std::endl;
+  std::cout << "First number must be less than the second number you enter"
+            << std::endl;
   std::cout << "Enter numbers: ";
   std::cin >> num1 >> num2;
 
-  while (num1 > num2) {
-    throw chapter5::InputException();
-
-    // Clear "Failed" state of cin
-    std::cin.clear();
-
-    // Remove invalid characters
-    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-
-    // Try again
-    std::cin >> num1 >> num2;
+  while (std::cin) {
+    if (std::cin.fail()) {
+      std::cout << "Input failed." << std::endl;
+      break;
+    } else {
+      break;
+    }
   }
 
-  std::cout << '\n';
+  std::cout << std::endl;
 
   // Initialize our class
   chapter5::NumberStats numbers(num1, num2);
