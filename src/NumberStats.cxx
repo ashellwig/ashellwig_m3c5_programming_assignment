@@ -19,155 +19,79 @@
 #include <cmath>
 #include <iomanip>
 #include <iostream>
-#include <vector>
 
-using namespace chapter5;
+void chapter5::promptUserInput(int &in1, int &in2) {
+  std::cout << "Enter two numbers." << std::endl;
+  std::cout << "First number must be less than the second number you enter"
+            << std::endl;
+  std::cout << "Enter numbers: " << std::endl;
+  std::cin >> in1 >> in2;
 
-/**
- * @brief Sets the numbers used for the methods of NumberStats objects.
- *
- * @param num1 First input (Must be < num2).
- * @param num2 Second input.
- */
-void NumberStats::setNumbers(int num1, int num2) {
-  m_firstNumber = num1;
-  m_secondNumber = num2;
-}
-
-/**
- * @brief Generates a vector of even integers between `start` and `end`.
- *
- * @param start First number input by user (beginning of vector).
- * @param end Second number input by user (end of vector).
- */
-void NumberStats::setEvenNumbers(int start, int end) {
-  start = m_firstNumber;
-  end = m_secondNumber;
-
-  for (auto iter = start; iter <= end; iter++) {
-    if (iter % 2 == 0) {
-      m_evenNumbers.push_back(iter);
+  while (std::cin) {
+    if (in1 > in2) {
+      std::cout << "First input should be lower than the second." << std::endl;
+      std::cin >> in1 >> in2;
+      break;
     }
+    break;
   }
 }
 
 /**
- * @brief Generates a vector of odd integers between `start` and `end`.
+ * @brief Prints the odd integers between two numbers.
  *
- * @param start First number input by user (beginning of vector).
- * @param end Second number input by user (end of vector).
  */
-void NumberStats::setOddNumbers(int start, int end) {
-  start = m_firstNumber;
-  end = m_secondNumber;
-
-  for (auto iter = start; iter <= end; iter++) {
-    if (iter % 2 != 0) {
-      m_oddNumbers.push_back(iter);
+void chapter5::printOdds(int in1, int in2) {
+  while (in1 <= in2) {
+    if (in1 % 2 != 0) {
+      std::cout << in1 << ' ';
+      in1++;
+      continue;
     }
-  }
-}
-
-/**
- * @brief Generates the output required in the programming assignment
- * specification for this program.
- *
- */
-void NumberStats::generateStatisticalOutput() const {
-  std::cout << "Odd integers between " << m_firstNumber << " and "
-            << m_secondNumber << " are:" << std::endl;
-
-  printOdds();
-
-  std::cout << "Sum of even integers between " << m_firstNumber << " and "
-            << m_secondNumber << " = " << getSumOfEvens() << std::endl;
-
-  printPowersOneToTen();
-
-  std::cout << "The sum of the squares of odd integers between "
-            << m_firstNumber << " and " << m_secondNumber << " = "
-            << getSumOfOddSquares() << std::endl;
-
-  printLetters();
-
-  std::cout << '\n';
-}
-
-/**
- * @brief Prints the integers contained in the odd number vector.
- *
- */
-void NumberStats::printOdds() const {
-  // Loop Control Variable
-  std::vector<int>::const_iterator oddIterator = m_oddNumbers.begin();
-
-  while ((oddIterator > m_oddNumbers.end()) &&
-         (oddIterator != m_oddNumbers.end())) {
-    std::cout << *oddIterator++ << ' ';
+    in1++;
   }
 
   std::cout << std::endl;
 }
 
 /**
- * @brief Gets first number input by user.
- *
- * @return int First number input by user.
- */
-int NumberStats::getFirstNumber() const { return m_firstNumber; }
-
-/**
- * @brief Gets second number input by user.
- *
- * @return int Second number input by user.
- */
-int NumberStats::getSecondNumber() const { return m_secondNumber; }
-
-/**
- * @brief Gets the vector of even integers.
- *
- * @return std::vector<int> Vector of even integers.
- */
-std::vector<int> NumberStats::getEvenNumbers() const { return m_evenNumbers; }
-
-/**
  * @brief Generates sum of even integer vector.
  *
  * @return int Sum of even integer vector.
  */
-int NumberStats::getSumOfEvens() const {
-  int sumOfEvens;
+int chapter5::calcSumOfEvens(int in1, int in2) {
+  int sumOfEvens = 0;
 
   // Loop control variable
-  std::vector<int>::const_iterator iter = m_evenNumbers.begin();
 
-  while (iter < m_evenNumbers.end()) {
-    sumOfEvens += *iter;
+  while (in1 <= in2) {
+    if (in1 % 2 == 0) {
+      sumOfEvens += in1;
+      in1++;
+      continue;
+    }
+    in1++;
   }
 
   return sumOfEvens;
 }
 
 /**
- * @brief Gets odd number vector.
+ * @brief Generates sum of squared odd integers between two numbers.
  *
- * @return std::vector<int> Odd number vector.
+ * @return int Sum of squared odd integers between two numbers.
  */
-std::vector<int> NumberStats::getOddNumbers() const { return m_oddNumbers; }
-
-/**
- * @brief Generates sum of squared odd integers in odd vector.
- *
- * @return int Sum of squared odd integers in odd vector.
- */
-int NumberStats::getSumOfOddSquares() const {
+int chapter5::calcSumOfOddSquares(int in1, int in2) {
   // Sum of the odd numbers each squared
-  int sumOfOddSquares;
-  // Loop Control Variable
-  std::vector<int>::const_iterator iter = m_oddNumbers.begin();
+  int sumOfOddSquares = 0;
 
-  while (iter < m_oddNumbers.end()) {
-    sumOfOddSquares += std::pow(*iter, 2);
+  while (in1 <= in2) {
+    if (in1 % 2 != 0) {
+      sumOfOddSquares += std::pow(in1, 2);
+      in1++;
+      continue;
+    }
+    in1++;
   }
 
   return sumOfOddSquares;
@@ -177,7 +101,7 @@ int NumberStats::getSumOfOddSquares() const {
  * @brief Outputs a table of the numbers 1-10 and their square.
  *
  */
-void NumberStats::printPowersOneToTen() const {
+void chapter5::printPowersOneToTen() {
   std::cout << std::setfill(' ') << "Number" << std::setw(20)
             << "Square of Number" << '\n';
 
@@ -199,7 +123,7 @@ void NumberStats::printPowersOneToTen() const {
  * @brief Outputs all uppercase letters of the English alphabet.
  *
  */
-void NumberStats::printLetters() const {
+void chapter5::printLetters() {
   std::cout << "Uppercase letters are: ";
 
   char currentLetter = 'A';

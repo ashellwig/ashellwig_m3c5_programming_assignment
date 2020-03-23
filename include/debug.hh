@@ -15,21 +15,21 @@
  */
 
 #ifndef DEBUG_HH_INCLUDED
-#define DEBUG_HH_INCLUDED
+#  define DEBUG_HH_INCLUDED
 
-#ifndef DEBUG
-#  define DEBUG 0
-#else
-#  define DEBUG          1
-#  define DEBUG_PRINTING 1
-#endif // !DEBUG
+namespace debug {
 
-#define verbose_print(...)                                                     \
-  do {                                                                         \
-    if (DEBUG)                                                                 \
-      fprintf(stderr, __VA_ARGS__);                                            \
-    else if (DEBUG_PRINTING)                                                   \
-      fprintf(stderr, __VA_ARGS__);                                            \
-  } while (1)
+#  ifndef DEBUG
+#    define DEBUG 0
+#  else
+#    define DEBUG 1
+#  endif // !DEBUG
+
+#  define verbose_print(...)                                                   \
+    do {                                                                       \
+      if (DEBUG)                                                               \
+        fprintf(stderr, __VA_ARGS__);                                          \
+    } while (1)
 
 #endif // !DEBUG_HH_INCLUDED
+}

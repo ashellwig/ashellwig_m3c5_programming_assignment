@@ -13,42 +13,40 @@
  */
 
 #include "../include/NumberStats.hh"       // NumberStats
-#include "../include/cxxopts/cxxopts.hpp"  // Argument parsing
 #include "../include/general_functions.hh" // pauseprompt
-#include <exception>
-#include <iostream> // cout, cin
-#include <limits>
+#include <iostream>                        // cout, cin
 
 /**
  * \brief Performs the steps to execute the main application.
  */
-int main(int argc, char **argv) {
-  // Variables to store the user's input
-  int num1, num2;
+int main() {
+  // Declare variables for assignment by user input
+  int num1 = 0;
+  int num2 = 0;
 
-  // Prompt user for numbers
-  std::cout << "Enter two numbers." << std::endl;
-  std::cout << "First number must be less than the second number you enter"
-            << std::endl;
-  std::cout << "Enter numbers: ";
-  std::cin >> num1 >> num2;
-
-  while (std::cin) {
-    if (std::cin.fail()) {
-      std::cout << "Input failed." << std::endl;
-      break;
-    } else {
-      break;
-    }
-  }
-
+  chapter5::promptUserInput(num1, num2);
   std::cout << std::endl;
 
-  // Initialize our class
-  chapter5::NumberStats numbers(num1, num2);
+  // Print odd numbers;
+  std::cout << "Odd integers between " << num1 << " and " << num2
+            << " are:" << std::endl;
+  chapter5::printOdds(num1, num2);
 
-  // Generate the output
-  numbers.generateStatisticalOutput();
+  // Calculate sum of evens
+  std::cout << "Sum of even integers between " << num1 << " and " << num2
+            << " = " << chapter5::calcSumOfEvens(num1, num2) << std::endl;
+
+  // Output Integers and their squares for [1..10]
+  chapter5::printPowersOneToTen();
+
+  // Output sum of odd squares
+  std::cout << "Sum of the squares of odd integers between " << num1 << " and "
+            << num2 << " = " << chapter5::calcSumOfOddSquares(num1, num2)
+            << std::endl;
+
+  // Print Characters [A..Z]
+  chapter5::printLetters();
+  std::cout << std::endl;
 
   // "Press enter to continue..."
   general_functions::pauseprompt();

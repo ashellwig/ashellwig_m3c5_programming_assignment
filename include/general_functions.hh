@@ -17,10 +17,11 @@
 ///
 
 #ifndef GENERAL_FUNCTIONS_HH_INCLUDED
-#define GENERAL_FUNCTIONS_HH_INCLUDED
+#  define GENERAL_FUNCTIONS_HH_INCLUDED
 
 namespace general_functions {
 void pauseprompt();
+
 } // namespace general_functions
 
 #endif

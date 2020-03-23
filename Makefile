@@ -25,7 +25,7 @@ CXXFLAGS := \
 	-Wall \
 	-Wextra \
 	-ggdb \
-	-D_DEBUG=1
+	-D_DEBUG
 LFLAGS := \
 	-std=gnu++2a \
 	-ggdb \

@@ -22,50 +22,19 @@
 #  define NUMBERSTATS_HH_INCLUDED
 
 namespace chapter5 {
+void promptUserInput(int &, int &);
+void printOdds(int, int);
+int calcSumOfEvens(int, int);
+int calcSumOfOddSquares(int, int);
+
+void printPowersOneToTen();
+void printLetters();
 
 class InputException : public std::exception {
 public:
   virtual const char *what() const throw() {
     return "Cannot have first input higher than the second.";
   }
-};
-
-class NumberStats {
-public:
-  /**
-   * @brief Construct a new NumberStats object.
-   *
-   * @param in1 First number (must be <in2).
-   * @param in2 Second number (must be >in1),
-   */
-  NumberStats(int in1, int in2) {
-    setNumbers(in1, in2);
-    setEvenNumbers(m_firstNumber, m_secondNumber);
-    setOddNumbers(m_firstNumber, m_secondNumber);
-  }
-
-  void setNumbers(int, int);
-  void setEvenNumbers(int, int);
-  void setOddNumbers(int, int);
-  void generateStatisticalOutput() const;
-
-  void printOdds() const;
-
-  int getFirstNumber() const;
-  int getSecondNumber() const;
-  std::vector<int> getEvenNumbers() const;
-  int getSumOfEvens() const;
-  std::vector<int> getOddNumbers() const;
-  int getSumOfOddSquares() const;
-
-  void printPowersOneToTen() const;
-  void printLetters() const;
-
-protected:
-  int m_firstNumber;
-  int m_secondNumber;
-  std::vector<int> m_evenNumbers;
-  std::vector<int> m_oddNumbers;
 };
 } // namespace chapter5
 
