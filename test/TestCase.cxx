@@ -2,34 +2,21 @@
 #include "../include/catch2/catch.hpp"
 #include <vector>
 
-using chapter5::NumberStats;
+using namespace chapter5;
 
 SCENARIO("Ensures user's first input is lower than the second", "[class]") {
   GIVEN("A lower first input than second input") {
-    int input1 = 1;
-    int input2 = 10;
+    int input1 = 87;
+    int input2 = 125;
 
-    WHEN("The object is created") {
-      REQUIRE_NOTHROW(NumberStats(input1, input2));
+    WHEN("We make calculations") {
+      int _desiredSumOfEvens = 2014;
+      int _desiredSumOfOddSquares = 227380;
 
-      THEN("The object's private member variables are assigned without error") {
-        NumberStats obj(input1, input2);
-
-        REQUIRE(obj.getFirstNumber() == input1);
-        REQUIRE(obj.getSecondNumber() == input2);
-        REQUIRE(obj.getFirstNumber() < obj.getSecondNumber());
+      THEN("The computations are correct") {
+        REQUIRE(calcSumOfEvens(input1, input2) == _desiredSumOfEvens);
+        REQUIRE(calcSumOfOddSquares(input1, input2) == _desiredSumOfOddSquares);
       }
-    }
-  }
-
-  GIVEN("A higher first input than second input") {
-    int input1 = 100;
-    int input2 = 1;
-
-    WHEN("The object is created") {
-      REQUIRE(input1 > input2);
-
-      REQUIRE_THROWS(NumberStats(input1, input2));
     }
   }
 }

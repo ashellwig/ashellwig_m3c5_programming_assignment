@@ -417,7 +417,7 @@ make clean-all # Removes object files, binaries, and docs
             \textbf{with a terminal emulator or command prompt}, this will
             (most likely) mean running:
             \begin{lstlisting}[language=bash]
-cd ~/Downloads/ashellwig_m3c5_programming_assignment/bin
+cd ~/Downloads/ashellwig_m3c5_programming_assignment/out/bin
             \end{lstlisting}
           \item To run the program simply issue this within the command
             prompt
@@ -462,5 +462,39 @@ cd ~/Downloads/ashellwig_m3c5_programming_assignment/bin
       \centering
       \includegraphics[width=\textwidth]{testout.png}
     \end{figure}
+
+    \subsection{Unit Test File}
+      Below I have included the code used to run the unit test for reference.
+
+      \begin{lstlisting}[language=c++,caption={catch\_main.cxx}]
+#define CATCH_CONFIG_MAIN
+
+#include "../include/catch2/catch.hpp"
+      \end{lstlisting}
+
+      \begin{lstlisting}[language=c++,caption={TestCase.cxx}]
+#include "../include/NumberStats.hh"
+#include "../include/catch2/catch.hpp"
+#include <vector>
+
+using namespace chapter5;
+
+SCENARIO("Ensures user's first input is lower than the second", "[class]") {
+  GIVEN("A lower first input than second input") {
+    int input1 = 87;
+    int input2 = 125;
+
+    WHEN("We make calculations") {
+      int _desiredSumOfEvens = 2014;
+      int _desiredSumOfOddSquares = 227380;
+
+      THEN("The computations are correct") {
+        REQUIRE(calcSumOfEvens(input1, input2) == _desiredSumOfEvens);
+        REQUIRE(calcSumOfOddSquares(input1, input2) == _desiredSumOfOddSquares);
+      }
+    }
+  }
+}
+      \end{lstlisting}
 \end{document}\caption{Test Output}
 
