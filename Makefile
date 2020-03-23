@@ -24,11 +24,10 @@ CXXFLAGS := \
 	-std=gnu++2a \
 	-Wall \
 	-Wextra \
-	-ggdb \
-	-D_DEBUG
+	-ggdb
 LFLAGS := \
 	-std=gnu++2a \
-	-ggdb \
+	-ggdb
 
 # --- Test Variables ---
 TEST_PROGRAM := out/bin/test
@@ -47,7 +46,7 @@ DOC_DOXYGEN_SUBDIRS := out/doc/doxygen/html out/doc/doxygen/latex out/doc/doxyge
 
 # === Rules ===
 # --- Chains ---
-all: doc-doxygen-build user-doc-release debug unit-test clean
+all: user-doc-release debug unit-test clean
 clean: user-doc-clean doc-doxygen-clean
 	$(RM) -f out/obj/*.o
 	$(RM) -f out/obj/test/*.o
@@ -58,7 +57,11 @@ clean-all: clean user-doc-clean-all
 
 # --- Debug Build ---
 debug: $(OBJS)
-	$(CXX) $(LFLAGS) -o $(PROGRAM) $(OBJS) -I$(INCLUDES)
+	$(CXX) \
+		$(LFLAGS) \
+		-o $(PROGRAM) \
+		$(OBJS) \
+		-I$(INCLUDES)
 
 out/obj/%.o: src/%.cxx
 	$(CXX) $(CXXFLAGS) -c $< -o $@ -I$(INCLUDES)
