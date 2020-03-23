@@ -17,7 +17,7 @@
 #include <iostream>                        // cout, cin
 
 /**
- * \brief Performs the steps to execute the main application.
+ * @brief Performs the steps to execute the main application.
  */
 int main() {
   // Declare variables for assignment by user input

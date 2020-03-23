@@ -25,6 +25,11 @@ namespace debug {
 #    define DEBUG 1
 #  endif // !DEBUG
 
+/**
+ * @brief Prints the output of a function call when it is sent to stderr rather
+ * than stdout. Use for debugging assistance.
+ *
+ */
 #  define verbose_print(...)                                                   \
     do {                                                                       \
       if (DEBUG)                                                               \

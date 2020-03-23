@@ -20,6 +20,18 @@
 #include <iomanip>
 #include <iostream>
 
+/**
+ * @brief Prompts the user for two numbers for future computation.
+ *
+ * The first number must be lower than the second. If it is not, it will
+ * continue to prompt the user until the values supplied satisfy the
+ * requirements. The variables are to be declared before calling this function
+ * **but not assigned**, as they will be copied by reference when the function
+ * is called successfully.
+ *
+ * @param in1 Variable storing the first input.
+ * @param in2 Variable storing the second input.
+ */
 void chapter5::promptUserInput(int &in1, int &in2) {
   std::cout << "Enter two numbers." << std::endl;
   std::cout << "First number must be less than the second number you enter"
@@ -55,9 +67,12 @@ void chapter5::printOdds(int in1, int in2) {
 }
 
 /**
- * @brief Generates sum of even integer vector.
+ * @brief Generates sum of even integers between two numbers.
  *
- * @return int Sum of even integer vector.
+ * @param in1 First input from user.
+ * @param in2 Second input from user.
+ *
+ * @return int The sum of even numbers between `in1` and `in2`
  */
 int chapter5::calcSumOfEvens(int in1, int in2) {
   int sumOfEvens = 0;
@@ -77,9 +92,12 @@ int chapter5::calcSumOfEvens(int in1, int in2) {
 }
 
 /**
- * @brief Generates sum of squared odd integers between two numbers.
+ * @brief Generates sum of the odd integers squared between two numbers.
  *
- * @return int Sum of squared odd integers between two numbers.
+ * @param in1 First input from user.
+ * @param in2 Second input from user.
+ *
+ * @return int The sum of (odd numbers)^2 between `in1` and `in2`
  */
 int chapter5::calcSumOfOddSquares(int in1, int in2) {
   // Sum of the odd numbers each squared

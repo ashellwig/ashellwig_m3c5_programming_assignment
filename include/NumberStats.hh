@@ -1,13 +1,13 @@
 /**
  * @file NumberStats.hh
  * @author Ashton Scott Hellwig (ahellwig@student.cccs.edu)
- * @brief This file contains the class prototype of `NumberStats` objects,
- *   allowing us easier implementation and testing utilization.
+ * @brief This file contains the class prototype of the functions required to
+ * compute the data requested in the assignment.
  * @date 2020-03-13
  *
  * Assignment: Module 3 Chapter 5 Programming Assignment
  * Description: This file contains the class prototype of `NumberStats`
- *   objects, allowing us easier implementation and testing utilization.
+ *   functions, allowing us easier implementation and testing utilization.
  * Instructor: Jeffrey Hemmes
  * Course:
  *   [CSC 160] Introduction to Programming (C++)
